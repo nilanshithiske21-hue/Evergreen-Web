@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop Products | EverGreen</title>
+    <meta name="description" content="Browse EverGreen's carefully selected collection. Free delivery, secure payments and easy returns.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<div class="announce">
+    🌿 <strong>Free delivery</strong> on all orders &nbsp;•&nbsp; Secure payments by Razorpay &nbsp;•&nbsp; 7-day easy returns
+</div>
+
+<header class="navbar">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">E</span>
+            <span>EverGreen</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html" style="color:#183c2d">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="cart.html" class="cart-btn">
+                🛒 Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="shop-hero">
+    <div class="container shop-hero-grid">
+
+        <div>
+            <span class="pill">✨ New collection • 2026</span>
+
+            <h1>Fresh picks for a <em>greener</em> everyday life.</h1>
+
+            <p class="lead">
+                Carefully selected products made to be simple, reliable and
+                beautiful. Loved by thousands of happy customers across India.
+            </p>
+
+            <div class="hero-cta">
+                <a href="#shop" class="btn-gold">Shop Now →</a>
+                <a href="#why" class="btn-ghost">Why EverGreen?</a>
+            </div>
+
+            <div class="hero-stats">
+                <div><strong>10k+</strong><span>Happy customers</span></div>
+                <div><strong>4.8★</strong><span>Average rating</span></div>
+                <div><strong>48h</strong><span>Fast dispatch</span></div>
+            </div>
+        </div>
+
+        <div class="hero-showcase">
+            <div class="float-chip one">⭐ 4.9 Top rated</div>
+            <div class="showcase-card">
+                <div class="showcase-art" id="heroArt">
+                    <img
+                    src="assets/images/products/evergreen-hero.png"
+                    alt="Money Plant"
+                    style="width:100%; height:100%; object-fit:cover; border-radius:inherit;"
+                    >
+                </div>
+                <h3>Premium Selection</h3>
+                <div class="row"><span>Customer favourite</span><b>₹999</b></div>
+            </div>
+            <div class="float-chip two">🚚 Free delivery</div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TRUST BAR -->
+<div class="container trust-wrap">
+    <div class="trust-bar">
+        <div class="trust-item"><div class="ic">🚚</div><div><b>Free Delivery</b><span>On every order</span></div></div>
+        <div class="trust-item"><div class="ic">🔒</div><div><b>Secure Payment</b><span>UPI, cards, netbanking</span></div></div>
+        <div class="trust-item"><div class="ic">↩️</div><div><b>Easy Returns</b><span>7-day hassle-free</span></div></div>
+        <div class="trust-item"><div class="ic">💬</div><div><b>Friendly Support</b><span>We’re here to help</span></div></div>
+    </div>
+</div>
+
+
+<!-- SHOP -->
+<section class="shop-section" id="shop">
+    <div class="container">
+
+        <div class="shop-head">
+            <div class="section-label">Our collection</div>
+            <h2>Explore Products</h2>
+            <p>Discover our carefully selected collection.</p>
+        </div>
+
+        <div class="toolbar">
+            <div class="chips">
+                <button class="chip active" onclick="setCategory('All', this)">All</button>
+                <button class="chip" onclick="setCategory('Featured', this)">Featured</button>
+                <button class="chip" onclick="setCategory('Popular', this)">Popular</button>
+                <button class="chip" onclick="setCategory('Premium', this)">Premium</button>
+                <button class="chip" onclick="setCategory('New', this)">New</button>
+            </div>
+
+            <div class="tools">
+                <input type="search" id="searchBox" placeholder="🔍 Search products...">
+                <select id="sortBox">
+                    <option value="featured">Sort: Featured</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+    </div>
+</section>
+
+
+<!-- WHY US -->
+<section class="why" id="why">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Why EverGreen</div>
+            <h2 class="section-title">Quality you can trust</h2>
+            <p class="section-description">We keep things simple: great products, honest prices and service that cares.</p>
+        </div>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="ic">🌱</div>
+                <h3>Carefully Selected</h3>
+                <p>Every product is hand-picked and quality checked before it reaches you.</p>
+            </div>
+            <div class="why-card">
+                <div class="ic">💎</div>
+                <h3>Honest Pricing</h3>
+                <p>Fair prices with regular offers, so you always get real value for money.</p>
+            </div>
+            <div class="why-card">
+                <div class="ic">⚡</div>
+                <h3>Fast &amp; Reliable</h3>
+                <p>Quick dispatch, safe packaging and tracking on every single order.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- REVIEWS -->
+<section class="reviews">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Testimonials</div>
+            <h2 class="section-title">Loved by our customers</h2>
+        </div>
+
+        <div class="review-grid">
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>Excellent quality and super fast delivery. The packaging was lovely and the product exactly as shown.</p>
+                <div class="who"><div class="avatar">A</div><div><b>Aarav Sharma</b><span>Pune</span></div></div>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>Smooth checkout and great support. I have already ordered again for my family. Highly recommended!</p>
+                <div class="who"><div class="avatar">P</div><div><b>Priya Deshmukh</b><span>Mumbai</span></div></div>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★☆</div>
+                <p>Very good value for money. The Complete Package had everything I needed in one go.</p>
+                <div class="who"><div class="avatar">R</div><div><b>Rohan Patil</b><span>Nagpur</span></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="news">
+    <div class="container">
+        <div class="news-box">
+            <h2>Get 10% off your first order</h2>
+            <p>Join our newsletter for new arrivals, offers and tips.</p>
+            <form class="news-form" onsubmit="subscribe(event)">
+                <input type="email" required placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>EverGreen</h3>
+                <p>Simple, reliable and beautiful products for a greener everyday life.</p>
+            </div>
+            <div>
+                <h3>Shop</h3>
+                <div class="footer-links">
+                    <a href="products.html">All Products</a>
+                    <a href="cart.html">Cart</a>
+                </div>
+            </div>
+            <div>
+                <h3>Company</h3>
+                <div class="footer-links">
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div>
+                <h3>Payments</h3>
+                <p>Secured by Razorpay<br>UPI • Cards • Netbanking</p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 EverGreen. All rights reserved.</div>
+    </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+    // hero showcase illustration reuses the product art
+    document.addEventListener("DOMContentLoaded", () => {
+        const el = document.getElementById("heroArt");
+        if (el) el.innerHTML = productArt(products[2]);
+    });
+</script>
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>

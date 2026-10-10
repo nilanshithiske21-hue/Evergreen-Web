@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payment Successful | EverGreen</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .success-page {
+
+            min-height: 80vh;
+
+            display: grid;
+
+            place-items: center;
+
+            padding: 50px 20px;
+
+        }
+
+
+        .success-card {
+
+            max-width: 600px;
+
+            width: 100%;
+
+            background: white;
+
+            border: 1px solid #e1e9e4;
+
+            border-radius: 25px;
+
+            padding: 50px;
+
+            text-align: center;
+
+            box-shadow:
+                0 20px 60px
+                rgba(20,60,40,.08);
+
+        }
+
+
+        .success-icon {
+
+            width: 80px;
+
+            height: 80px;
+
+            border-radius: 50%;
+
+            background: #e5f3e9;
+
+            color: #267047;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 35px;
+
+            margin: 0 auto 25px;
+
+        }
+
+
+        .payment-id {
+
+            background: #f3f7f4;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin: 25px 0;
+
+            word-break: break-all;
+
+            font-size: 13px;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                E
+            </span>
+
+            <span>
+                EverGreen
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<section class="success-page">
+
+    <div class="success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h1>
+            Payment Successful!
+        </h1>
+
+
+        <p>
+            Thank you for your order.
+            Your payment has been received successfully.
+        </p>
+
+
+        <div class="payment-id">
+
+            <strong>
+                Payment ID
+            </strong>
+
+            <br>
+
+            <span id="paymentId">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="primary-btn"
+        >
+            Continue Shopping
+        </a>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+document.getElementById(
+    "paymentId"
+).textContent =
+    params.get("payment_id")
+    || "Not available";
+
+</script>
+
+
+</body>
+
+</html>

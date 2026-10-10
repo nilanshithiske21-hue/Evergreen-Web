@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EverGreen | Checkout</title>
+
+    <!-- Razorpay Checkout -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px 16px;
+            background: #f5f7f4;
+            color: #222;
+        }
+
+        .checkout-container {
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: #205b36;
+        }
+
+        h2 {
+            color: #205b36;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #205b36;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.92;
+        }
+
+        .upi-payment {
+            margin-top: 30px;
+            padding: 22px;
+            border: 1px solid #d8e4d8;
+            border-radius: 10px;
+            background: #fbfdfb;
+            text-align: center;
+        }
+
+        .upi-qr-image {
+            display: block;
+            width: 220px;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+
+        .upi-note {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .upi-form {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .upi-form button {
+            margin-top: 12px;
+            background: #397d4b;
+        }
+
+        #customerDetails {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f3f8f3;
+            border-radius: 8px;
+        }
+
+        .detail-label {
+            margin: 16px 0 6px;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            margin: 0 0 14px;
+            overflow-wrap: anywhere;
+        }
+
+        #paymentMessage {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px 10px;
+            }
+
+            .checkout-container {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="checkout-container">
+        <h1>EverGreen Checkout</h1>
+
+        <!-- Customer details: IDs preserved for checkout.js -->
+        <form id="checkoutForm">
+            <div class="form-group">
+                <label for="customerName">Full Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    name="customerName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="customerEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="customerEmail"
+                    name="customerEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="customerPhone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    name="customerPhone"
+                    placeholder="Enter your phone number"
+                    autocomplete="tel"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="customerAddress">Delivery Address</label>
+                <textarea
+                    id="customerAddress"
+                    name="customerAddress"
+                    placeholder="Enter your complete delivery address"
+                    autocomplete="street-address"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit">Proceed to Razorpay Payment</button>
+        </form>
+
+        <!-- Manual UPI QR option -->
+        <section class="upi-payment" aria-labelledby="upiHeading">
+            <h2 id="upiHeading">Pay Using UPI QR</h2>
+
+            <p>
+                Open Google Pay, PhonePe, BHIM, or another UPI app
+                and scan this QR code.
+            </p>
+
+            <img
+                class="upi-qr-image"
+                src="/assets/images/products/upi-qr.jpeg"
+                alt="Your UPI payment QR code"
+                onerror="this.style.display='none'; document.getElementById('qrError').style.display='block';"
+            >
+
+            <p id="qrError" style="display:none; color:#b00020;">
+                QR image not found. Check that frontend/images/upi-qr.jpeg exists
+                and that your server serves the frontend folder.
+            </p>
+
+            <p class="upi-note">
+                Verify the recipient name and pay the exact order amount
+                in your UPI app.
+            </p>
+
+            <form id="upiForm" class="upi-form">
+                <div class="form-group">
+                    <label for="upiTransactionId">UPI Transaction ID</label>
+                    <input
+                        type="text"
+                        id="upiTransactionId"
+                        name="upiTransactionId"
+                        placeholder="Enter transaction ID after paying"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Submit UPI Payment Details</button>
+            </form>
+
+            <p class="upi-note">
+                Submitting a transaction ID does not verify payment.
+                Your order must not be marked as paid until the payment
+                is independently verified.
+            </p>
+        </section>
+
+        <!-- Shown after existing payment code updates these fields -->
+        <section id="customerDetails">
+            <h2>Customer Details</h2>
+
+            <p class="detail-label">Name</p>
+            <p id="displayName" class="detail-value"></p>
+
+            <p class="detail-label">Email</p>
+            <p id="displayEmail" class="detail-value"></p>
+
+            <p class="detail-label">Phone</p>
+            <p id="displayPhone" class="detail-value"></p>
+
+            <p class="detail-label">Address</p>
+            <p id="displayAddress" class="detail-value"></p>
+        </section>
+
+        <div id="paymentMessage" role="status" aria-live="polite"></div>
+
+        <p class="upi-note" style="text-align:center; margin-top:20px;">
+            Keep your payment confirmation for reference.
+        </p>
+    </main>
+
+    <!-- Load your existing checkout JavaScript once -->
+    <script src="js/checkout.js"></script>
+
+    <script>
+        // This collects a UPI transaction ID for review only.
+        // It does not verify payment or create a confirmed order.
+        document.getElementById("upiForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const transactionId = document
+                .getElementById("upiTransactionId")
+                .value.trim();
+
+            const message = document.getElementById("paymentMessage");
+
+            if (!transactionId) {
+                message.textContent = "Please enter your UPI transaction ID.";
+                return;
+            }
+
+            message.textContent =
+                "UPI details submitted on this page. Payment is not yet verified, and the order is not confirmed.";
+        });
+    </script>
+</body>
+</html>

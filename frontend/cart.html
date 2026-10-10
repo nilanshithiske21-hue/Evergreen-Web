@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | EverGreen</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="announce">🌿 EverGreen — thoughtful choices for everyday life</div>
+
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-mark">E</span>
+            <span>EverGreen</span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+        </nav>
+        <a href="cart.html" class="cart-btn">
+            🛒 Cart <span class="cart-count" id="cartCount">0</span>
+        </a>
+    </div>
+</header>
+
+<main class="container" style="padding-top:45px;padding-bottom:70px">
+    <h1>Your Shopping Cart</h1>
+    <p>Review your products before checkout.</p>
+
+    <div id="cartItems"></div>
+
+    <section style="max-width:480px;margin:30px 0 0 auto;padding:25px;background:#f1f7f3;border-radius:16px">
+        <div style="display:flex;justify-content:space-between;margin:10px 0">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">₹0</strong>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin:10px 0">
+            <span>Delivery</span>
+            <strong id="cartDelivery">₹0</strong>
+        </div>
+        <hr>
+        <div style="display:flex;justify-content:space-between;font-size:22px;margin:15px 0">
+            <strong>Total</strong>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <a href="products.html" class="btn-ghost" style="display:block;text-align:center;margin:12px 0">
+            Continue shopping
+        </a>
+
+        <button id="checkoutButton" class="btn-gold" style="width:100%;border:0;cursor:pointer">
+            Proceed to Checkout →
+        </button>
+        <p id="cartMessage" role="status"></p>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <h3>EverGreen</h3>
+        <p>Thank you for shopping with us.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

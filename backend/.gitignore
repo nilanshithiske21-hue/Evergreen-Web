@@ -1,0 +1,23 @@
+```gitignore
+# Dependencies
+node_modules/
+backend/node_modules/
+
+# Secret keys and environment variables
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+```
