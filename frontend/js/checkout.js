@@ -194,8 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     try {
-                        const verifyResponse = await fetch(
-                            "/api/payment/verify",
+                        const verifyResponse = await fetch("https://https://evergreen-web-1.onrender.com/api/payment/verify",
                             {
                                 method: "POST",
                                 headers: {
